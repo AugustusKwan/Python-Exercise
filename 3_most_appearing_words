@@ -1,0 +1,49 @@
+#这是求某个文件当中出现频率最高的3个单词
+from sys import argv
+from operator import itemgetter
+
+script,file = argv
+List = []
+L = open(file,'r')
+for word in  L.readlines():
+    List.append(word.strip())
+
+Myset = set(List)
+for i in Myset:
+    print "The '%s' has been found %d " %(i,List.count(i))
+
+print "========================================="
+
+D = {}
+for a in List:
+    #if List.count(a)>1:
+        D[a]=List.count(a)
+
+d2 = sorted(D.iteritems(), key=itemgetter(1), reverse=True)
+
+
+K=[]
+while True:
+ for i in xrange(3):
+    K.append(d2[0])
+    d2.remove(d2[0])
+
+ if i == 2:
+     while True:
+      if K[-1][1] == d2[0][1]:
+         K.append(d2[0])
+         d2.remove(d2[0])
+      else:
+         break
+ break
+
+print "The 3 most appearing words:"
+print K
+
+for i in K:
+    print "word:%s appear %d time(s) " %(i[0],i[1])
+
+print "++++++++++++++++++++++++++++++++++++++++++"
+
+
+
