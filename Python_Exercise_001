@@ -1,0 +1,6 @@
+a = [1,2,3,4]
+for a1 in a:
+	for a2 in a:
+		for a3 in a:
+			if (a1!=a2) & (a1!=a3)&(a2!=a3):
+				print a1*100+a2*10+a3
