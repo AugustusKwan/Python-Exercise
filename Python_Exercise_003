@@ -3,7 +3,7 @@ i=1
 while i <= 9:
 	for a in A:
 		for b in A:
-			#result = a * b
+			
 			print '%s * %s = %s  '%(b,a, a*b),
 			if b == i:
 				print "\n"
